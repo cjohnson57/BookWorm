@@ -1,0 +1,76 @@
+﻿@model List<BookAndRelated>
+
+<div class="container">
+    @if (Model.Count > 0)
+    {
+        @foreach (BookAndRelated book in Model)
+        {
+            <button type="button" class="collapsible">@(book.Title) - <i class="authortext">@(book.Author)</i>@(string.IsNullOrEmpty(book.Series) ? "" : ", part of the " + book.Series + " series")</button>
+            <div class="collapse-content-container">
+                <div class="collapse-content">
+                    <div class="bookinfo">
+                        <div class="synopsis"><i class="bookinfo-header">Synopsis:</i><br />@(book.Synopsis)</div>
+                        @if (!string.IsNullOrEmpty(book.Review))
+                        {
+                            <div class="review"><i class="bookinfo-header">Review:</i><br />@(book.Review)</div>
+                        }
+                        <div class="score">
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                if (i < book.Score)
+                                {
+                                    <img class="star" src="~/images/star.png" />
+                                }
+                                else
+                                {
+                                    <img class="star" src="~/images/graystar.png" />
+                                }
+                            }
+                        </div>
+                        @if (book.Related.Count() > 0)
+                        {
+                            <div class="related">
+                                <i class="bookinfo-header">You may also like:</i>
+                                @foreach (string relatedtitle in book.Related)
+                                {
+                                    <br />@relatedtitle
+                                }
+                            </div>
+                        }
+                    </div>
+                    <div class="cover-container">
+                        @if (book.Cover != null)
+                        {
+                            string base64 = Convert.ToBase64String(book.Cover);
+                            string imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                            <img class="bookcover" src="@imgSrc" />
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <h1 class="dusttext"><i>Dust</i></h1>
+    }
+
+</div>
+
+<script>
+    //Script for collapsible book info panels
+    $(document).ready(function () {
+        var coll = document.getElementsByClassName("collapsible");
+        for (var i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+    });
+</script>

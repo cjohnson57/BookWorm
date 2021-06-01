@@ -1,0 +1,6 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+@model List<BookAndRelated>
+
+@{await Html.RenderPartialAsync("BooksList", Model);}

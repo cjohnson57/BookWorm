@@ -1,0 +1,253 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+/*Classes for layout/formatting*/
+
+@media (min-width: 1520px) {
+    .container {
+        max-width: 1440px;
+    }
+}
+
+.navcontainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.maintitle {
+    margin: auto;
+}
+
+@media(max-width: 767px) {
+    .maintitle {
+        display: none;
+    }
+}
+
+@media(min-width: 768px) {
+    .navbar-brand {
+        display: none;
+    }
+}
+
+.maintitle-text {
+    color: black;
+}
+
+    .maintitle-text:hover {
+        text-decoration: none;
+        color: black;
+    }
+
+/*Classes for home pages*/
+
+.authortext {
+    color: #efefef;
+}
+
+.collapsible {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+    .collapsible:hover {
+        background-color: #a9a9a9;
+        border: none;
+    }
+
+    .collapsible:focus {
+        outline: none;
+    }
+
+/*Plus/Minus signs, look ugly on mobile due to adding another line*/
+@media(min-width: 768px) {
+    .collapsible:after {
+        content: '\002B'; /*Minus sign*/
+        color: white;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
+
+    .active:after {
+        content: "\2212"; /*Plus sign*/
+    }
+}
+
+
+.collapse-content-container {
+    background-color: #f0f0f0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.collapse-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media(max-width: 767px) {
+    .collapse-content {
+        flex-direction: column;
+    }
+}
+
+.bookinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 1%;
+}
+
+.bookinfo-header {
+    font-size: large;
+    color: darkgray;
+}
+
+.star {
+    width: 5%;
+}
+
+.cover-container {
+    margin: 1%;
+}
+
+.bookcover {
+    max-width: 300px;
+}
+
+@media(max-width: 767px) {
+    .bookcover {
+        width: 80%;
+    }
+}
+
+.searchbar {
+    margin-right: 1%;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.searchbar:focus {
+    outline: none;
+}
+
+.dusttext {
+    text-align: center;
+    color: #d0d0d0;
+}
+
+/*Classes for editing pages*/
+
+.edit-box {
+    max-width: 700px;
+    width: 700px;
+}
+
+.view-box {
+    max-width: 700px;
+    width: 700px;
+    border: none;
+}
+
+.paragraph-box {
+    max-width: 700px;
+    width: 700px;
+    height: 150px;
+}
+
+.view-paragraph-box {
+    max-width: 700px;
+    width: 700px;
+    height: 150px;
+    border: none;
+}
+
+.submitbtn {
+    margin-right: 2%;
+    padding: .5%;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+}
+
+    .submitbtn:hover {
+        background-color: #d8d8d8;
+    }

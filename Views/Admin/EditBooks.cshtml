@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Manage Books";
+}
+@model List<BookPageForm>
+
+<div class="container">
+    @using (Html.BeginForm("EditBooks", "Admin", FormMethod.Post, new { role = "form", enctype = "multipart/form-data" }))
+    {
+        <a href="@Url.Action("AddBook")">Add New Entry</a>
+        <br />
+        <br />
+        <input type="submit" class="submitbtn" value="Save Changes" />
+        for (int i = 0; i < Model.Count(); i++)
+        {
+            <hr class="hardhr" />
+            @Html.HiddenFor(model => model[i].BookPK)
+            <div class="form-group">
+                <h3>Title</h3>
+                @Html.TextBoxFor(model => model[i].Title, new { @class = "edit-box" })
+                @Html.ValidationMessageFor(model => model[i].Title, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <h3>Author</h3>
+                @Html.TextBoxFor(model => model[i].Author, new { @class = "edit-box" })
+                @Html.ValidationMessageFor(model => model[i].Author, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <h3>Synopsis</h3>
+                @Html.TextAreaFor(model => model[i].Synopsis, new { @class = "paragraph-box" })
+                @Html.ValidationMessageFor(model => model[i].Synopsis, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <h3>Series</h3>
+                @Html.TextBoxFor(model => model[i].Series, new { @class = "edit-box" })
+            </div>
+            <div class="form-group">
+                <h3>Review</h3>
+                @Html.TextAreaFor(model => model[i].Review, new { @class = "paragraph-box" })
+            </div>
+            <div class="form-group">
+                <h3>Score</h3>
+                @Html.TextBoxFor(model => model[i].Score, new { @type = "number" })
+                @Html.ValidationMessageFor(model => model[i].Score, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <h3>Cover Image</h3>
+                @Html.TextBoxFor(model => model[i].Cover, new { type = "file", name = "File" })
+            </div>
+            <a href="@Url.Action("DeleteBook", new { DeleteKey = Model[i].BookPK } )">Delete This Book</a>
+        }
+    }
+</div>
+
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

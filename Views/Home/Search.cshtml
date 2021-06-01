@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Search";
+}
+@model SearchModel
+
+@using (Html.BeginForm())
+{
+    @Html.TextBoxFor(model => model.Query, new { @class = "searchbar" })
+    <input type="submit" class="submitbtn" value="Search!" />
+}
+
+<br />
+
+@{await Html.RenderPartialAsync("BooksList", Model.Books);}
+
